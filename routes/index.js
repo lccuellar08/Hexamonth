@@ -1,9 +1,11 @@
 const { Router } = require('express')
 const express = require('express')
+const Month = require('../models/month')
 const indexRouter = express.Router()
 
-indexRouter.get('/', (req, res) => {
-    res.status(200).json({msg: "Hello World!"})
+indexRouter.get('/', async (req, res) => {
+    const months = await Month.find({})
+    res.status(200).json({msg: months})
 })
 
 module.exports = indexRouter
