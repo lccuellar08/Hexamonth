@@ -13,13 +13,10 @@ function App() {
     const formData = new FormData()
     formData.append('file', dayFile)
 
-    fetch("http://localhost:3001/day/61f70f102639145201c9642a", {
+    fetch("http://localhost:3001/day/61f70f102639145201c9642e", {
       method: 'put',
       mode: 'cors',
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      body: dayFile
+      body: formData
     })
 
     console.log(formData)
