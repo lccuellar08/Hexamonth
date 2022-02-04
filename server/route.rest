@@ -1,0 +1,26 @@
+GET http://localhost:3000/
+
+###
+
+GET http://localhost:3000/month/61f70aa28a3690de15d20f78
+
+###
+
+PUT http://localhost:3000/month/61f70aa28a3690de15d20f78
+Content-Type: application/json
+
+{
+    "theme": "Metroidvania Ideas",
+    "description": "Upgrade, gameplay, and design ideas for Metroidvania game"
+}
+
+###
+GET http://localhost:3000/day/61f70f102639145201c9642a
+
+
+###
+PUT http://localhost:3000/day/61f70f102639145201c9642a
+Content-Disposition: form-data; name="dayFile"; filename="dayFile.txt"
+Content-Type: text/plain
+
+< ./dayFile.txt

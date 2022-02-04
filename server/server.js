@@ -7,9 +7,11 @@ const bodyParser = require('body-parser')
 const cors = require("cors")
 
 const app = express()
-app.use(cors())
+app.use(cors({
+    origin: 'http://localhost:3000'
+}))
 app.use(express.json())
-app.use(bodyParser.urlencoded( {limit: '10mb', extended: false} )) 
+//app.use(bodyParser.urlencoded( {limit: '10mb', extended: false} )) 
 
 const mongoose = require("mongoose")
 mongoose.connect(process.env.DATABASE_URL, {
@@ -32,4 +34,4 @@ app.use('/month', monthRouter)
 app.use('/day', dayRouter)
 
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 3001)
