@@ -5,7 +5,7 @@ const indexRouter = express.Router()
 
 indexRouter.get('/', async (req, res) => {
     const months = await Month.find({})
-    res.status(200).json({msg: months})
+    res.status(200).json({months: months})
 })
 
 module.exports = indexRouter

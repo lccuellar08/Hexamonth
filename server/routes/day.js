@@ -25,12 +25,13 @@ dayRouter.get('/:id/file', async (req, res) => {
         if(day.filepath) {
             const fileData = fs.readFileSync(`./files/${day.filename}`);
             console.log("fileData")
-            res.send(fileData)
+            res.sendFile(day.filepath)
         } else {
             console.log("failed to read filepath")
         }
-    } catch {
+    } catch (e){
         res.status(500).json({msg: "Internal Server Error"})
+        console.error(e)
     }
 })
 
