@@ -23,8 +23,9 @@ monthRouter.put('/:id', async (req, res) => {
     let month
     try {
         month = await Month.findById(req.params.id)
-        month.Theme = req.body.theme
-        month.Description = req.body.description
+        month.Theme = req.body.Theme
+        month.Description = req.body.Description
+        month.Complete = true
         await month.save()
         res.status(200).json({month: month})
     } catch {

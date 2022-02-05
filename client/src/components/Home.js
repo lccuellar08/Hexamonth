@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {url} from './App'
-import Month from './Month'
+import Month from './Month/Month'
 
 
 export default function Home() {

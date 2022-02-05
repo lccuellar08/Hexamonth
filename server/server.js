@@ -25,8 +25,8 @@ db.once("open", () => console.log("Connected to Mongoose"))
 
 
 var databaseInit = require('./scripts/databaseInit')
-//databaseInit.createMonths()
-//databaseInit.createDays()
+// databaseInit.createMonths()
+// databaseInit.createDays()
 
 const indexRouter = require('./routes/index')
 const monthRouter = require('./routes/month')

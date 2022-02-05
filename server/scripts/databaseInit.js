@@ -8,7 +8,8 @@ module.exports = {
             const month = new Month({
                 MonthName: monthName,
                 Month: index + 1,
-                Year: 2022
+                Year: 2022,
+                Complete: false
             })
 
             try {

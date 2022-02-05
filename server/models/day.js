@@ -16,6 +16,10 @@ const daySchema = new mongoose.Schema({
         type: Boolean,
         required: true
     },
+    filetype: {
+        type: String,
+        required: false,
+    },
     filename: {
         type: String,
         required: false,

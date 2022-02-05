@@ -65,15 +65,17 @@ dayRouter.put('/:id', async (req, res) => {
         day = await Day.findById(req.params.id)
         day.filename = `${req.params.id}.${extension}`
         day.filepath = process.cwd() + `/files/${req.params.id}.${extension}`
+        day.filetype = extension
         day.Complete = true
         await day.save()
         res.status(200).json({day: day})
-    } catch {
+    } catch (e){
         if(day == null) {
             // Didn't find day in database, redirect
             res.status(301).json({msg: "No day with that ID"})
         }
         else {
+            console.log(e)
             res.status(500).json({msg: "Internal Server Error"})
         }
     }

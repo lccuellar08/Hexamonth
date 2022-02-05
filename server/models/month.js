@@ -16,6 +16,10 @@ const monthSchema = new mongoose.Schema({
         btype: Int32,
         required: true
     },
+    Complete: {
+        type: Boolean,
+        required: true
+    },
     Theme: {
         type: String,
         required: false,

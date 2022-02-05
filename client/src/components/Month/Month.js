@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from 'react'
-import Day from './Day'
-import {url} from './App'
+import Day from '../Day/Day'
+import DayList from '../Day/DayList'
+import MonthForm from './MonthForm'
+import MonthView from './MonthView'
+import {url} from '../App'
 
 export default function Month({month_id, setSelectedMonth}) {
     const [isLoading, setIsLoading] = useState(true)
     const [days, setDays] = useState()
+    const [month, setMonth] = useState()
     const [selectedDay, setSelectedDay] = useState()
     const monthUrl = url+"month/"+month_id
 
@@ -15,6 +19,7 @@ export default function Month({month_id, setSelectedMonth}) {
                 (result) => {
                     console.log(result)
                     setDays(result.days)
+                    setMonth(result.month)
                     setIsLoading(false)
                 },
                 (error) => {
@@ -30,19 +35,14 @@ export default function Month({month_id, setSelectedMonth}) {
                 Loading!
             </div>
         )
-    } else if(selectedDay == undefined) {
+    } else if(selectedDay === undefined) {
         return (
             <div>
-                {days.map((d) => {
-                    return (
-                        <>
-                            <label onClick={() => setSelectedDay(d._id)} key = {d._id}>
-                                {d.Month.MonthName + " " + d.Day}
-                            </label>
-                            <br/>
-                        </>
-                    )
-                })}
+                {month.Complete ?
+                    <MonthView month={month}/> :
+                    <MonthForm month={month} setMonth={setMonth}/>
+                }
+                <DayList days={days} setSelectedDay={setSelectedDay}/>
                 <button onClick={() => setSelectedMonth()}>
                     Back
                 </button>
